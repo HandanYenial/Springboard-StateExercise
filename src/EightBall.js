@@ -70,13 +70,21 @@ function EightBall() {
         setColor(color);
 
 }
+
+function restart(){
+    setMessage("Think of a Question");
+    setColor("black");
+}
     return(
       <div>
         <h1> Magic Eight Ball </h1>
         <div className = "EightBall" onClick = {matchAnswer} style ={{backgroundColor:color}}>
         
             <h1>{msg}</h1>
+            
         </div>
+        <button  className="button" onClick={ restart } > Restart </button>
+
       </div>
     );
 
