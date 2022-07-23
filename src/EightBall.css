@@ -1,29 +1,16 @@
-.green{
-    background-color: green;
-    color: white;
-    border: 1px solid #ccc;
+.EightBall {
+    
+    margin: 50px;
     border-radius: 50%;
-    padding: 45px;
-    margin-bottom: 5px;
     width: 150px;
     height: 150px;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    margin-left: 45%;
-}
-
-.red{
-    background-color: red;
-    color: white;
-    border: 1px solid #ccc;
-    border-radius: 50%;
-    padding: 45px;
-    margin-bottom: 5px;
-    width: 150px;
-    height: 150px;
-    align-items: center;
-    margin-left: 45%;
-}
-
- 
+    color: rgb(0, 255, 255);
+    padding: 30px;
+    text-align: center;
+    cursor: pointer;
+  }
    
  

@@ -2,6 +2,29 @@ import React , {useState} from "react";
 import "./EightBall.css";
 
 
+//initial message will be "Think of a Question"
+//const [message, setMessage] = useState("Think of a Question");
+
+//initial color will be black
+//const [color, setColor] = useState("black");
+
+//there will be a function to choose a random answer from an array of answers
+//function chooseAnswer() {
+    //let randomIndex = Math.floor(Math.random() * answers.length);
+    //let randomAnswer = answers[randomIndex];
+    //return randomAnswer;
+    //}
+
+// we need a function to match the answer(message) with the color. each message has it's own color,
+//so the color needs to change when the answer changes.
+//function matchAnswer() {
+    // const { msg , color } = chooseAnswer();
+    // setMessage(msg);
+    //
+
+// need to write all of them in a function and return tem in a div to show.
+
+
 let answers = [
     { msg: "It is certain.", color: "green" },
     { msg: "It is decidedly so.", color: "green" },
@@ -22,42 +45,40 @@ let answers = [
     { msg: "My reply is no.", color: "red" },
     { msg: "My sources say no.", color: "red" },
     { msg: "Outlook not so good.", color: "red" },
-    { msg: "Very doubtful.", color: "red" },
+    { msg: "Very doubtful.", color: "red" }
+  ];
 
-]
-const EightBall = (props) => {
-    const getRandom = () => Math.floor( Math.random(answers) * answers.length );
-    const[guess, setGuess] = useState(getRandom());
-    const[color, setColor] = useState(answers[guess].color);
-    const[msg, setMsg] = useState(answers[guess].msg);
-    
-    const isColor = (props) => {
-        if(color === "green"){
-            return "green";
-        }else
-        if (color === "red"){
-            return "red";
-        }
-    }
 
-    const makeGuess =() => {
-        setGuess(getRandom());
-        setColor(answers[guess].color);
-        setMsg(answers[guess].msg);
-    }
+  function chooseAnswer(answers){
+    const randomIndex = Math.floor(Math.random() * answers.length);
+    let randomAnswer = answers[randomIndex];
+    return randomAnswer;
+}
 
+
+
+function EightBall() {
+    //initial message will be "Think of a Question"
+    const [msg, setMessage] = useState("Think of a Question");
+
+    //initial color will be black
+    const [color, setColor] = useState("black");
+
+    function matchAnswer() {
+        const { msg , color } = chooseAnswer();
+        setMessage(msg);
+        setColor(color);
+
+}
     return(
-        <div>
-            <h1> Magic Eight Ball </h1>
-            <h2 className= {isColor ? 'green' : 'red'} >
-                
-                 {msg}</h2>
-            
-            <button onClick={makeGuess}> Ask the Magic Eight Ball </button>
-
+      <div>
+        <h1> Magic Eight Ball </h1>
+        <div className = "EightBall" onClick = {matchAnswer} style ={{backgroundColor:color}}>
+        
+            <h1>{msg}</h1>
         </div>
-    )
-
+      </div>
+    );
 
 }
 
