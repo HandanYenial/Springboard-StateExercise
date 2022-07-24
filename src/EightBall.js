@@ -49,7 +49,7 @@ let answers = [
   ];
 
 
-  function chooseAnswer(answers){
+  function chooseAnswer({ answers}) {
     const randomIndex = Math.floor(Math.random() * answers.length);
     let randomAnswer = answers[randomIndex];
     return randomAnswer;
@@ -65,7 +65,7 @@ function EightBall() {
     const [color, setColor] = useState("black");
 
     function matchAnswer() {
-        const { msg , color } = chooseAnswer();
+        const { msg , color } = chooseAnswer({answers});
         setMessage(msg);
         setColor(color);
 
@@ -80,7 +80,7 @@ function restart(){
         <h1> Magic Eight Ball </h1>
         <div className = "EightBall" onClick = {matchAnswer} style ={{backgroundColor:color}}>
         
-            <h1>{msg}</h1>
+            <h1>{msg} </h1>  
             
         </div>
         <button  className="button" onClick={ restart } > Restart </button>
